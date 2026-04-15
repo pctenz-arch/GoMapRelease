@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-tertiary-container: #5fe0f6;
+  --color-secondary-dim: #004ca5;
+  --color-on-secondary: #f0f2ff;
+  --color-inverse-primary: #4a8eff;
+  --color-primary-container: #6c9fff;
+  --color-outline: #757778;
+  --color-inverse-surface: #0c0f10;
+  --color-on-tertiary-container: #004d57;
+  --color-surface: #f5f6f7;
+  --color-tertiary-fixed-dim: #4ed1e7;
+  --color-surface-dim: #d1d5d7;
+  --color-surface-tint: #0058ba;
+  --color-secondary-fixed-dim: #a9c4ff;
+  --color-error: #b31b25;
+  --color-on-background: #2c2f30;
+  --color-primary-fixed: #6c9fff;
+  --color-secondary-fixed: #bed2ff;
+  --color-on-surface-variant: #595c5d;
+  --color-secondary-container: #bed2ff;
+  --color-tertiary: #006572;
+  --color-surface-variant: #dadddf;
+  --color-on-error: #ffefee;
+  --color-tertiary-dim: #005864;
+  --color-on-primary-fixed-variant: #002a60;
+  --color-on-tertiary-fixed: #003840;
+  --color-secondary: #0058bc;
+  --color-error-container: #fb5151;
+  --color-primary: #0058ba;
+  --color-surface-container: #e6e8ea;
+  --color-surface-container-low: #eff1f2;
+  --color-on-secondary-fixed-variant: #004da7;
+  --color-tertiary-fixed: #5fe0f6;
+  --color-primary-fixed-dim: #5091ff;
+  --color-on-secondary-container: #004495;
+  --color-surface-bright: #f5f6f7;
+  --color-on-primary-container: #00214e;
+  --color-on-error-container: #570008;
+  --color-on-primary-fixed: #000000;
+  --color-inverse-on-surface: #9b9d9e;
+  --color-primary-dim: #004da4;
+  --color-surface-container-highest: #dadddf;
+  --color-on-primary: #f0f2ff;
+  --color-outline-variant: #abadae;
+  --color-on-secondary-fixed: #003270;
+  --color-error-dim: #9f0519;
+  --color-on-tertiary-fixed-variant: #005763;
+  --color-on-surface: #2c2f30;
+  --color-surface-container-high: #e0e3e4;
+  --color-background: #f5f6f7;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary: #d9f8ff;
+
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-label: "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+  --app-height: 100%;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: var(--color-background);
+}
+
+[data-theme="dark"] body {
+  background-color: var(--color-inverse-surface);
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* iOS Safe Area Handling */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite ease-in-out;
+}
+
+/* Fix Leaflet popup styling to work better with Tailwind */
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+.leaflet-popup-content {
+  margin: 0;
+  padding: 12px;
+}
+.custom-popup .leaflet-popup-content {
+  width: 200px !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Glass UI Classes */
+.glass-panel {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
+}
+.liquid-shadow {
+  box-shadow: 0 4px 24px -1px rgba(0, 88, 186, 0.08), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+}
+.liquid-gradient {
+  background: linear-gradient(135deg, #0058ba 0%, #6c9fff 100%);
+}
+.glass-inner-glow {
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+[data-theme="dark"] .glow-blue {
+  box-shadow: 0 0 40px -10px rgba(0, 88, 186, 0.3);
+}
